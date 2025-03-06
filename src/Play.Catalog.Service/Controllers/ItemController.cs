@@ -14,7 +14,13 @@ namespace Play.Catalog.Service.Controllers
     public class ItemsController : ControllerBase
     {
         //variable for our repository
-        private readonly ItemRepository itemsRepository = new();
+        private readonly IItemRepository itemsRepository;
+
+        //constructor class , dependency inj
+        public ItemsController(IItemRepository itemsRepository)
+        {
+            this.itemsRepository = itemsRepository;
+        }
 
         //api's
         [HttpGet]
